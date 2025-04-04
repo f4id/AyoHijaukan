@@ -36,8 +36,8 @@ jobs:
         run: |
           for ((i=0; i<${{ github.event.inputs.limit }}; i++)); do
             d=$(date '+%Y-%m-%d %H:%M:%S')
-            echo "$i - $d" >> AUTO_UPDATE
-            git add AUTO_UPDATE
+            echo "$i - $d" > AUTO_UPDATE
+            git add -A
             git commit -m "${{ github.event.inputs.commit }} - $i"
             sleep 1
           done
